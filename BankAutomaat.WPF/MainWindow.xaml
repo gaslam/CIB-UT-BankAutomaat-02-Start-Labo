@@ -1,0 +1,19 @@
+﻿<Window x:Class="BankAutomaat.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankAutomaat.WPF"
+        mc:Ignorable="d"
+        Title="Howest Finance" Height="171" Width="339.5" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="Huidig saldo op je rekening:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTotalAmount" Content="€ 0" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMoney" HorizontalAlignment="Left" Height="22" Margin="10,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnAddMoney" Content="Storting" HorizontalAlignment="Left" Margin="144,69,0,0" VerticalAlignment="Top" Width="76" Height="22" Background="Lime" Click="BtnAddMoney_Click"/>
+        <Button x:Name="btnGetMoney" Content="Afhaling" HorizontalAlignment="Left" Margin="225,69,0,0" VerticalAlignment="Top" Width="76" Height="22" Background="Red" Click="BtnGetMoney_Click"/>
+        <Label Content="Bedrag:" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+        <Label Content="Actie:" HorizontalAlignment="Left" Margin="145,43,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
