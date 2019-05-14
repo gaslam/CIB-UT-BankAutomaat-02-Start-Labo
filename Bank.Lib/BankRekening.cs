@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 
 namespace Bank.Lib
 {
@@ -24,6 +25,15 @@ namespace Bank.Lib
 
         public decimal TakeMoneyFromBankAccount(decimal money)
         {
+            if (money < 0)
+            {
+                throw new ArgumentOutOfRangeException("Het bedrag kan niet kleiner zijn dan 0.");
+            }
+
+            if (money > Balance)
+            {
+                throw new ArgumentOutOfRangeException("Het bedrag kan niet groter zijn dan de balans.");
+            }
             Balance -= money;
             return Balance;
         }
