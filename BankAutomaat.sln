@@ -7,7 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAutomaat.WPF", "BankAut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Lib", "Bank.Lib\Bank.Lib.csproj", "{5A26AE13-9975-4AC5-829A-C9AAD88CA5A0}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAutomaat.Tests", "..\..\..\source\repos\BankAutomaat.Tests\BankAutomaat.Tests\BankAutomaat.Tests.csproj", "{A657CD18-4747-49E9-9C8F-DC90233F5468}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAutomaat.Tests", "BankAutomaat.Tests\BankAutomaat.Tests.csproj", "{48424E8C-A490-4CE7-B863-EDE1CBB02B99}"
+>>>>>>> 113f1caa99d2b9aaac19443d1a59b6f77aeeb791
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +27,17 @@ Global
 		{5A26AE13-9975-4AC5-829A-C9AAD88CA5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A26AE13-9975-4AC5-829A-C9AAD88CA5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A26AE13-9975-4AC5-829A-C9AAD88CA5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{A657CD18-4747-49E9-9C8F-DC90233F5468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A657CD18-4747-49E9-9C8F-DC90233F5468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A657CD18-4747-49E9-9C8F-DC90233F5468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A657CD18-4747-49E9-9C8F-DC90233F5468}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{48424E8C-A490-4CE7-B863-EDE1CBB02B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48424E8C-A490-4CE7-B863-EDE1CBB02B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48424E8C-A490-4CE7-B863-EDE1CBB02B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48424E8C-A490-4CE7-B863-EDE1CBB02B99}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 113f1caa99d2b9aaac19443d1a59b6f77aeeb791
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
