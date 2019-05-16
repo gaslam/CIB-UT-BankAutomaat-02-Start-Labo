@@ -30,7 +30,17 @@ namespace Bank.Lib
         {
             if (money < 0)
             {
-                throw new ArgumentOutOfRangeException("Het bedrag kan niet kleiner zijn dan 0.");
+                throw new ArgumentOutOfRangeException(MoneyAmountLessThanZeroMessage);
+            }
+
+            if (money > 2000)
+            {
+                throw new ArgumentOutOfRangeException(MoneyAmountGreaterThanMaxMessage);
+            }
+
+            if (money == 0)
+            {
+                throw new ArgumentOutOfRangeException(MoneyAmountIsZeroMessage);
             }
 
             Balance += money;

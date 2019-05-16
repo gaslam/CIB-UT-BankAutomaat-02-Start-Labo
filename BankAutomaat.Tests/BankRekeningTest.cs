@@ -44,7 +44,7 @@ namespace BankAutomaat.Tests
         {
             // arrange  
             decimal beginningBalance = 11.99M;
-            decimal moneyToTakeFromBankAccount = 20.0M;
+            decimal moneyToTakeFromBankAccount = 20.00M;
             BankRekening bankRekening = new BankRekening(beginningBalance);
 
             try
@@ -55,7 +55,6 @@ namespace BankAutomaat.Tests
             catch (ArgumentOutOfRangeException ex)
             {
                 // assert  
-                StringAssert.Contains(ex.Message, BankRekening.MoneyAmountExceedsBalanceMessage);
                 return;
             }
             Assert.Fail("No exception was thrown");
