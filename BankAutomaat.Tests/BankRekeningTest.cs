@@ -63,9 +63,6 @@ namespace BankAutomaat.Tests
 
             Assert.Fail("No exception was thrown.");
 
-
-
-
             //is handled by ExpectedException
         }
 
@@ -145,14 +142,12 @@ namespace BankAutomaat.Tests
                 //Arrange
                 decimal beginningBalance = 20.95m;
                 decimal moneyToAdd = 00.00m;
-                decimal expected = 20.95m;
 
                 BankRekening bankRekening = new BankRekening(beginningBalance);
 
                 //Act
                 bankRekening.AddMoneyToBankAccount(moneyToAdd);
 
-                
             }
             catch (ArgumentOutOfRangeException ex)
             {

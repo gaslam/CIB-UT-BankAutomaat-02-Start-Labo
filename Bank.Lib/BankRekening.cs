@@ -6,7 +6,6 @@ namespace Bank.Lib
 {
     public class BankRekening
     {
-
         public const string MoneyAmountExceedsBalanceMessage = "Er staat niet genoeg geld op je rekening";
         public const string MoneyAmountLessThanZeroMessage = "Het bedrag kan niet kleiner dan 0 zijn.";
         public const string MoneyAmountIsZeroMessage = "Het bedrag kan niet 0 zijn.";
@@ -51,7 +50,6 @@ namespace Bank.Lib
         {
             if (money < 0)
             {
-
                 throw new ArgumentOutOfRangeException("Het bedrag kan niet kleiner zijn dan 0.");
             }
 
@@ -62,12 +60,10 @@ namespace Bank.Lib
 
             /*throw new ArgumentOutOfRangeException(MoneyAmountLessThanZeroMessage);*/
 
-
             if (Balance < money)
             {
                 throw new ArgumentOutOfRangeException(MoneyAmountExceedsBalanceMessage);
             }
-
 
             Balance -= money;
             return Balance;
