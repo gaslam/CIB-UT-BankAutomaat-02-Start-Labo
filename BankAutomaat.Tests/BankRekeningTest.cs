@@ -90,7 +90,7 @@ namespace BankAutomaat.Tests
         }
 
         [TestMethod]
-        public void AddMoneyToBankAccount_WhenValueIsLessThanZero()
+        public void AddMoneyToBankAccount_WhenMoneyIsLessThanZero()
         {
             //Arrange
             try
@@ -106,7 +106,7 @@ namespace BankAutomaat.Tests
             catch (ArgumentOutOfRangeException ex)
             {
                 //Assert
-
+                StringAssert.Contains(ex.Message, BankRekening.MoneyAmountLessThanZeroMessage);
                 return;
             }
 
@@ -114,7 +114,7 @@ namespace BankAutomaat.Tests
         }
 
         [TestMethod]
-        public void AddMoneyToBankAccount_WhenValueMoreThan2000()
+        public void AddMoneyToBankAccount_WhenMoneyMoreThanMax()
         {
             //Arrange
             try
@@ -130,7 +130,7 @@ namespace BankAutomaat.Tests
             catch (ArgumentOutOfRangeException ex)
             {
                 //Assert
-
+                StringAssert.Contains(ex.Message, BankRekening.MoneyAmountGreaterThanMaxMessage);
                 return;
             }
 
