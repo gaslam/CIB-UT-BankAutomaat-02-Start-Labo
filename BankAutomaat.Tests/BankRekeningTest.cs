@@ -5,59 +5,163 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BankAutomaat.Tests
 {
     [TestClass]
-    public class BankRekeningTest
+    public class BankrekeningTest
     {
         [TestMethod]
-        public void TakeMoneyFromBankAccount_WithValidMoney_UpdatesBalance()
+        public void TakeMoneyFromBankAccount_withValueMoney_UpdateBalance()
         {
-            // Arrange
-            decimal beginningBalance = 500.95M;
-            decimal moneyToTakeFromBankAccount = 100.10M;
-            decimal expected = 400.85M;
-            BankRekening bankRekening = new BankRekening(beginningBalance);
 
-            // Act
-            bankRekening.TakeMoneyFromBankAccount(moneyToTakeFromBankAccount);
+                //Arrange
+                decimal beginningBalance = 500.95m;
+                decimal moneyToTakeFrombankAccount = 100.10m;
+                decimal expected = 400.85m;
+                BankRekening bankRekening = new BankRekening(beginningBalance);
 
-            // Assert
-            decimal actual = bankRekening.Balance;
-            Assert.AreEqual(expected, actual, "Balance is incorrect");
+                //Act
+
+                bankRekening.TakeMoneyFromBankAccount(moneyToTakeFrombankAccount);
+
+                //Assert
+                decimal actual = bankRekening.Balance;
+                Assert.AreEqual(expected, actual, "Balance is incorrect");
+
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TakeMoneyFromBankAccount_WhenMoneyIsLessThanZero_ShouldThrowArgumentOutOfRange()
         {
-            // arrange  
-            decimal beginningBalance = 11.99M;
-            decimal moneyToTakeFromBankAccount = -20.0M;
+            //Arrange
+            decimal beginningBalance = 12.00m;
+            decimal moneyToTakeFrombankAccount = -20.00m;
             BankRekening bankRekening = new BankRekening(beginningBalance);
+            
+            //Act
+            bankRekening.TakeMoneyFromBankAccount(moneyToTakeFrombankAccount);
 
-            // act  
-            bankRekening.TakeMoneyFromBankAccount(moneyToTakeFromBankAccount);
-
-            // assert is handled by ExcpectedException attribute
+            //Assert
+            //is handled by ExpectedException
         }
 
         [TestMethod]
         public void TakeMoneyFromBankAccount_WhenMoneyIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
         {
-            // arrange  
-            decimal beginningBalance = 11.99M;
-            decimal moneyToTakeFromBankAccount = 20.00M;
+            //Arrange
+            decimal beginningBalance = 12.00m;
+            decimal moneyToTakeFrombankAccount = 20.00m;
             BankRekening bankRekening = new BankRekening(beginningBalance);
-
             try
             {
-                // act  
-                bankRekening.TakeMoneyFromBankAccount(moneyToTakeFromBankAccount);
+                //Act
+                bankRekening.TakeMoneyFromBankAccount(moneyToTakeFrombankAccount);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                //Assert
+                return;
+            }
+
+            Assert.Fail("No exception was thrown.");
+
+
+
+
+            //is handled by ExpectedException
+        }
+
+        [TestMethod]
+        public void AddMoneyToBankAccount_withValueMoney_UpdateBalance()
+        {
+            //Arrange
+            decimal beginningBalance = 500.95m;
+            decimal MoneyToAdd = 12.00m;
+            decimal expected = 512.95m;
+
+            BankRekening bankRekening = new BankRekening(beginningBalance);
+
+            //Act
+
+            bankRekening.AddMoneyToBankAccount(MoneyToAdd);
+
+            //Assert
+
+            decimal actual = bankRekening.Balance;
+            Assert.AreEqual(expected, actual, "Balance is incorrect");
+        }
+
+        [TestMethod]
+        public void AddMoneyToBankAccount_WhenValueIsLessThanZero()
+        {
+            //Arrange
+            try
+            {
+                decimal beginningBalance = 20.95m;
+                decimal MoneyToAdd = -12.00m;
+
+                BankRekening bankRekening = new BankRekening(beginningBalance);
+
+                //Act
+                bankRekening.AddMoneyToBankAccount(MoneyToAdd);
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                // assert  
+                //Assert
+
                 return;
             }
-            Assert.Fail("No exception was thrown");
+
+            Assert.Fail("No exception was thrown.");
+        }
+
+        [TestMethod]
+        public void AddMoneyToBankAccount_WhenValueMoreThan2000()
+        {
+            //Arrange
+            try
+            {
+                decimal beginningBalance = 20.95m;
+                decimal MoneyToAdd = 2001.00m;
+
+                BankRekening bankRekening = new BankRekening(beginningBalance);
+
+                //Act
+                bankRekening.AddMoneyToBankAccount(MoneyToAdd);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                //Assert
+
+                return;
+            }
+
+            Assert.Fail("No exception was thrown.");
+        }
+
+        [TestMethod]
+        public void AddMoneyToBankAccount_WhenMoneyIsZero()
+        {
+            try
+            {
+                //Arrange
+                decimal beginningBalance = 20.95m;
+                decimal moneyToAdd = 00.00m;
+                decimal expected = 20.95m;
+
+                BankRekening bankRekening = new BankRekening(beginningBalance);
+
+                //Act
+                bankRekening.AddMoneyToBankAccount(moneyToAdd);
+
+                
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                //Assert
+                StringAssert.Contains(ex.Message, BankRekening.MoneyAmountIsZeroMessage);
+                return;
+            }
+
+            Assert.Fail("No exception was thrown.");
         }
     }
 }
