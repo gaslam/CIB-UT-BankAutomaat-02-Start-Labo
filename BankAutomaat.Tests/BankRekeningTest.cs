@@ -158,5 +158,23 @@ namespace BankAutomaat.Tests
 
             Assert.Fail("No exception was thrown.");
         }
+
+        [TestMethod]
+        public void AddMoneyToBankaccound_withValidMoney_UpdatesBalance()
+        {
+                //Arrange
+                decimal beginningBalance = 10m;
+                decimal money = 1m;
+                decimal expected = 11m;
+                BankRekening bankRekening = new BankRekening(beginningBalance);
+
+                //Act
+                bankRekening.AddMoneyToBankAccount(money);
+
+                //Assert
+                decimal actual = bankRekening.Balance;
+
+                Assert.AreEqual(expected, actual, "Balance is incorrect");
+        }
     }
 }
